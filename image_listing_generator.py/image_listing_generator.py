@@ -27,13 +27,21 @@ def generate_depop_listing(image_paths, brand, condition, measurements, fit, def
     combined_desc = " ".join(descriptions)
     style = combined_desc.split(' ')[-1] if combined_desc else 'style'
     category = "Top" if "top" in combined_desc.lower() else "Other"
-    hashtags = f"#{brand} #{style.replace(' ', '_')} #[Depop] #[Trend] " + " ".join([f"#{buzzword.replace(' ', '_')}" for buzzword in buzzwords])
+    relevant_buzzwords = [word for word in buzzwords if word.lower() in combined_desc.lower()]
+    # Limit to 5, use only if found
+    if relevant_buzzwords:
+        limited_buzzwords = relevant_buzzwords[:5]
+    else:
+        # Fallback: pick 5 random from buzzwords (to ensure some are present)
+        limited_buzzwords = random.sample(buzzwords, 5) if len(buzzwords) >= 5 else buzzwords
+    hashtags = " ".join([f"#{word.replace(' ', '_')}" for word in limited_buzzwords])
+
 
     # Select random buzzwords
     buzzword_phrase = ", ".join(random.sample(buzzwords, 3))
     title = f"{brand} {combined_desc.title()} – {buzzword_phrase.capitalize()}"
     paragraph = (f"Elevate your wardrobe with this {brand} {category} – {combined_desc}, "
-                 f"crafted with {measurements} for a {fit.lower()} fit. "
+                 f"size {measurements} for a {fit.lower()} fit. "
                  f"In {condition.lower()} condition with {defects if defects.lower() != 'none' else 'no visible defects'}. "
                  f"A {buzzword_phrase} piece, perfect for turning heads and making a statement. "
                  f"Swipe through images to see every detail.")
