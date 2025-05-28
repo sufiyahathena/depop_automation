@@ -20,5 +20,3 @@ shipping = float(input("Enter shipping cost: "))
 suggested, total = calculate_depop_price(retail, condition, shipping)
 print(f"Suggested Depop Price: ${suggested}")
 print(f"Total Price to List (including shipping): ${total}")
-
-#from .pricing_calculator import calculate_price
