@@ -27,7 +27,7 @@ def generate_depop_listing(image_paths, brand, condition, measurements, fit, def
     combined_desc = " ".join(descriptions)
     style = combined_desc.split(' ')[-1] if combined_desc else 'style'
     category = "Top" if "top" in combined_desc.lower() else "Other"
-    hashtags = f"#{brand} #{style.replace(' ', '_')} #[Depop] #[Trend]"
+    hashtags = f"#{brand} #{style.replace(' ', '_')} #[Depop] #[Trend] " + " ".join([f"#{buzzword.replace(' ', '_')}" for buzzword in buzzwords])
 
     # Select random buzzwords
     buzzword_phrase = ", ".join(random.sample(buzzwords, 3))
