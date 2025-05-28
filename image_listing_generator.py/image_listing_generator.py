@@ -11,7 +11,7 @@ def generate_depop_listing(image_paths, brand, condition, measurements, fit, def
     # Fashion buzzwords
     buzzwords = ["effortless", "iconic", "statement-making", "timeless", "versatile", "chic", "on-trend", "must-have", "elegant", "vibrant", "sleek", 
     "sophisticated", "playful", "fashion-forward", "bold", "feminine", 
-    "polished", "unique", "whimsical", "vintage", "y2k", "Y2K", "90s", , "rare", "preloved", "secondhand", "sustainable", "retro", "grunge", "minimalist",
+    "polished", "unique", "whimsical", "vintage", "y2k", "Y2K", "90s", "rare", "preloved", "secondhand", "sustainable", "retro", "grunge", "minimalist",
     "aesthetic", "cozy", "boho", "edgy", "classic", "trendy", "unique", "handpicked", "limited-edition",
     "one-of-a-kind", "fashion-forward", "curated", "stylish", "bold", "elegant", "casual", "luxury", "boho", "cottage core", "mermaid core", "fairy core"]
 
